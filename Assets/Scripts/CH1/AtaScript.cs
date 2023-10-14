@@ -25,7 +25,7 @@ public class AtaScript : MonoBehaviour
         {
             Saat.SetActive(false);
             SaatiVerText.SetActive(false);          
-            StartCoroutine(LoadSceneWithDelay(1.0f)); 
+            StartCoroutine(LoadSceneWithDelay(1.0f));
         }
     }
 

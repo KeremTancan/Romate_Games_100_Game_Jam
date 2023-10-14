@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BirdController : MonoBehaviour
 {
@@ -10,9 +14,16 @@ public class BirdController : MonoBehaviour
 
     private int mermiHit =0;
 
+    private SpriteRenderer spriteRenderer;
+    private Color defaultColor;
+
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = spriteRenderer.color;
     }
 
     private void Update()
@@ -31,7 +42,7 @@ public class BirdController : MonoBehaviour
        
         rb.AddForce(Vector2.down * gravity);
 
-        if(mermiHit == 4)
+        if(mermiHit == 3)
         {
             Debug.Log("Oyun Bitti");
         }
@@ -50,6 +61,30 @@ public class BirdController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             mermiHit++;
+            spriteRenderer.color = Color.red;
+
+            GameObject gameObjectToHide = GameObject.Find("Kalp");
+            gameObjectToHide.SetActive(false);
+
+
+
+            // Start a coroutine to revert the color back to the default after a delay
+            StartCoroutine(RevertColorAfterDelay(1.0f));
+
         }
+
+        if (collision.gameObject.CompareTag("Komutan"))
+        {
+            SceneManager.LoadScene(2);
+        }
+
+    }
+
+    private IEnumerator RevertColorAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Revert the color to the default color
+        spriteRenderer.color = defaultColor;
     }
 }

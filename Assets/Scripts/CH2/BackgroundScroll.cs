@@ -23,9 +23,6 @@ public class BackgroundScroll : MonoBehaviour
         backgroundTransform.position = newPosition;
 
         
-        if (backgroundTransform.position.x <= -15.0f)  
-        {
-            backgroundTransform.position = initialPosition;
-        }
+        
     }
 }

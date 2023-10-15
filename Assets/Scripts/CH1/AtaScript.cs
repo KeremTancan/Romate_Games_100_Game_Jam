@@ -31,8 +31,8 @@ public class AtaScript : MonoBehaviour
 
     private IEnumerator LoadSceneWithDelay(float delay)
     {
-        yield return new WaitForSeconds(delay); 
-        SceneManager.LoadScene(1); 
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

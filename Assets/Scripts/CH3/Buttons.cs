@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
@@ -48,6 +49,11 @@ public class Buttons : MonoBehaviour
 
         }
 
+        if (gameObjectToHide == null)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
 
     }
 
@@ -85,7 +91,7 @@ public class Buttons : MonoBehaviour
 
         if (gameObjectToHide == null)
         {
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

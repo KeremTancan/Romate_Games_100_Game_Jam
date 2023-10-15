@@ -75,7 +75,7 @@ public class BirdController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Komutan"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
     }

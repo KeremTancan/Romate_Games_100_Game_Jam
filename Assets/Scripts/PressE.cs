@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PressE : MonoBehaviour
 {
-    
+    public GameObject CreditsPanel;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E))
@@ -21,14 +21,12 @@ public class PressE : MonoBehaviour
 
     public void CreditsButton()
     {
-        GameObject gameObjectToShow = GameObject.Find("CreditsPanel");
-        gameObjectToShow.SetActive(true);
+        CreditsPanel.SetActive(true);
     }
 
     public void CreditsBackButton()
     {
-        GameObject gameObjectToShow = GameObject.Find("CreditsPanel");
-        gameObjectToShow.SetActive(false);
+        CreditsPanel.SetActive(false);
     }
 
     public void ExitButton()

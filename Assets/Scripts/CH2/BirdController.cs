@@ -43,7 +43,7 @@ public class BirdController : MonoBehaviour
 
         if(mermiHit == 3)
         {
-            Debug.Log("Oyun Bitti");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

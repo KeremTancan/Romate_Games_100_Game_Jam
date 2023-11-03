@@ -26,9 +26,9 @@ public class Timer : MonoBehaviour
 
         if (timer <= 0)
         {
-            SceneManager.LoadScene(sceneBuildIndex: 0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (timer < 5)
+        if (timer < 10)
         {
             timerText.color= Color.red;
         }

@@ -16,8 +16,6 @@ public class Buttons : MonoBehaviour
         EvetSprite.SetActive(false);
     }
 
-    
-
     public void EvetTik()
     {
         GameObject gameObjectToHide = GameObject.Find("");
@@ -44,17 +42,10 @@ public class Buttons : MonoBehaviour
             case 3:
                 gameObjectToHide = GameObject.Find("Yunanistan");
                 Destroy(gameObjectToHide, 1);
-                sayý++;
+                StartCoroutine(DeleyCode(1));
                 break;
 
         }
-
-        if (gameObjectToHide == null)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
-
     }
 
     public void HayirTik()
@@ -84,14 +75,18 @@ public class Buttons : MonoBehaviour
             case 3:
                 gameObjectToHide = GameObject.Find("Yunanistan");
                 Destroy(gameObjectToHide, 1);
+                StartCoroutine(DeleyCode(1));
                 sayý++;
                 break;
 
         }
+    }
 
-        if (gameObjectToHide == null)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+
+
+    private IEnumerator DeleyCode(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
